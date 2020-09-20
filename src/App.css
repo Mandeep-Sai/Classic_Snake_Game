@@ -1,11 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
+body {
+  background-color: #202e17;
+}
 #gameScreen > div {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 20px;
 }
-#score {
+#info {
   position: absolute;
-  top: 0;
-  right: 100px;
+  top: 20px;
+  left: 20px;
+}
+#welcome {
+  width: 400px;
+  display: block;
+  margin: 40px auto;
+}
+#welcome img {
+  width: 300px;
+}
+#welcome p {
+  color: #9ac601;
+  font-family: "Special Elite", cursive;
+  font-size: 30px;
+}
+#details {
+  width: 700px;
+  display: flex;
+  margin: 0 auto;
+}
+#details p {
+  margin: 0px;
+  color: #9ac601;
+  font-family: "Special Elite", cursive;
+  font-size: 30px;
+}
+#details input {
+  background: transparent;
+  border: none;
+  color: #9ac601;
+  font-family: "Special Elite", cursive;
+  font-size: 30px;
+  margin-left: 10px;
+}
+#details input:focus {
+  outline: none;
+}
+#startButton {
+  display: block;
+  width: 200px;
+  margin: 15px auto;
+}
+#startButton button {
+  font-size: 20px;
+  border: 3px solid #9ac601;
+  background-color: #202e17;
+  padding: 10px;
+  color: #9ac601;
+  font-family: "Special Elite", cursive;
+}
+#startButton button:hover {
+  cursor: pointer;
+}
+#info {
+  margin-top: 10px;
+  width: 200px;
+}
+#info p {
+  margin: 0px;
+  color: #9ac601;
+  font-family: "Special Elite", cursive;
+  font-size: 20px;
+}
+#info p:first-of-type {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 30px;
+}
+#info p:nth-of-type(2) {
+  text-align: center;
+  margin-top: 20px;
+}
+#highscores {
+  position: absolute;
+  top: 300px;
+  left: 20px;
+  width: 200px;
+}
+#highscores p {
+  margin: 0px;
+  color: #9ac601;
+  font-family: "Special Elite", cursive;
+  font-size: 20px;
+  text-align: center;
+}
+#highscores p:first-of-type {
+  margin: 10px 0px;
+}
+#scores {
+  display: flex;
+  justify-content: space-between;
+}
+#scores p:nth-of-type(2) {
+  margin: 10px 0px;
 }
