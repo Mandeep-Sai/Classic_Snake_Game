@@ -4,3 +4,8 @@
   justify-content: center;
   margin-top: 20px;
 }
+#score {
+  position: absolute;
+  top: 0;
+  right: 100px;
+}

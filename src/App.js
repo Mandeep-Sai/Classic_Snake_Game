@@ -29,6 +29,16 @@ const gameState = {
   gridSize: 20,
 };
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      score: 0,
+    };
+  }
+  handleGameOver = () => {
+    console.log("ayipaaye");
+  };
   componentDidMount() {
     //socket connection
     const connOpt = {
@@ -37,6 +47,10 @@ class App extends Component {
     this.socket = io("http://localhost:3001", connOpt);
     this.socket.on("init", this.handleInit);
     this.socket.on("gameState", this.handleGameState);
+    this.socket.on("gameOver", this.handleGameOver);
+    this.socket.on("increaseScore", () => {
+      this.setState({ score: this.state.score + 1 });
+    });
     //
     let canvas = document.getElementById("canvas");
     let ctx = canvas.getContext("2d");
@@ -82,6 +96,7 @@ class App extends Component {
     return (
       <Container>
         <div id="gameScreen">
+          <p id="score">Score:{this.state.score}</p>
           <div>
             <canvas id="canvas"></canvas>
           </div>
