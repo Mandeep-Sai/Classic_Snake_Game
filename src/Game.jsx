@@ -36,11 +36,19 @@ export class Game extends Component {
       score: 0,
       showModal: false,
       gameOver: false,
+      highscores: [],
     };
   }
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
     this.startGame();
+    this.fetchScores();
+  };
+  fetchScores = async () => {
+    let response = await fetch("http://localhost:3001/scores");
+    let scores = await response.json();
+    let top5 = scores.slice(0, 6);
+    this.setState({ highscores: top5 });
   };
   startGame = () => {
     const connOpt = {
@@ -93,8 +101,21 @@ export class Game extends Component {
     gameState = JSON.parse(gameState);
     requestAnimationFrame(() => this.paintgame(gameState, ctx, canvas));
   };
-  handleGameOver = () => {
+  handleGameOver = async () => {
     this.setState({ showModal: true, gameOver: true });
+    let payload = {
+      score: this.state.score,
+      name: this.props.name,
+    };
+    let response = await fetch("http://localhost:3001/scores", {
+      method: "POST",
+      body: JSON.stringify(payload),
+      headers: new Headers({
+        "Content-Type": "application/json",
+      }),
+    });
+
+    this.fetchScores();
   };
   handleClose = () => {
     this.setState({ showModal: false });
@@ -118,10 +139,16 @@ export class Game extends Component {
 
         <div id="highscores">
           <p>Highscores</p>
-          <div id="scores">
-            <p>Bandi</p>
-            <p>400</p>
-          </div>
+          {this.state.highscores.map((element) => {
+            return (
+              <>
+                <div id="scores">
+                  <p>{element.name}</p>
+                  <p>{element.score}</p>
+                </div>
+              </>
+            );
+          })}
         </div>
         <div id="gameScreen">
           <div>
