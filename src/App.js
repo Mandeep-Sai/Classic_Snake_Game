@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import "./App.css";
 import io from "socket.io-client";
 import Game from "./Game";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const background_color = "#231f20";
 const snake_color = "#c2c2c2";

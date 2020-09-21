@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Modal, Button } from "react-bootstrap";
 import io from "socket.io-client";
 
 const background_color = "#231f20";
@@ -34,10 +34,15 @@ export class Game extends Component {
 
     this.state = {
       score: 0,
+      showModal: false,
+      gameOver: false,
     };
   }
 
   componentDidMount = () => {
+    this.startGame();
+  };
+  startGame = () => {
     const connOpt = {
       transports: ["websocket"],
     };
@@ -89,7 +94,14 @@ export class Game extends Component {
     requestAnimationFrame(() => this.paintgame(gameState, ctx, canvas));
   };
   handleGameOver = () => {
-    console.log("ayipaaye");
+    this.setState({ showModal: true, gameOver: true });
+  };
+  handleClose = () => {
+    this.setState({ showModal: false });
+  };
+  restartGame = () => {
+    this.startGame();
+    this.setState({ showModal: false, score: 0, gameOver: false });
   };
   render() {
     return (
@@ -98,6 +110,12 @@ export class Game extends Component {
           <p>{this.props.name}</p>
           <p>score :{this.state.score}</p>
         </div>
+        {this.state.gameOver ? (
+          <div id="restartGame">
+            <button onClick={this.restartGame}>Restart Game</button>
+          </div>
+        ) : null}
+
         <div id="highscores">
           <p>Highscores</p>
           <div id="scores">
@@ -110,6 +128,20 @@ export class Game extends Component {
             <canvas id="canvas"></canvas>
           </div>
         </div>
+        {/* modal */}
+        <Modal show={this.state.showModal} onHide={this.handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Game Over!!</Modal.Title>
+          </Modal.Header>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={this.handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={this.restartGame}>
+              Try Again
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </>
     );
   }

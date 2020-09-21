@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
 body {
-  background-color: #202e17;
+  background-color: #202e17 !important;
 }
 #gameScreen > div {
   display: flex;
@@ -11,7 +11,7 @@ body {
 #info {
   position: absolute;
   top: 20px;
-  left: 20px;
+  left: 7vw;
 }
 #welcome {
   width: 400px;
@@ -86,7 +86,7 @@ body {
 #highscores {
   position: absolute;
   top: 300px;
-  left: 20px;
+  left: 7vw;
   width: 200px;
 }
 #highscores p {
@@ -105,4 +105,20 @@ body {
 }
 #scores p:nth-of-type(2) {
   margin: 10px 0px;
+}
+#restartGame {
+}
+#restartGame button {
+  display: block;
+  width: 200px;
+  margin: 0px auto;
+  position: absolute;
+  left: 7vw;
+  top: 150px;
+  font-size: 20px;
+  border: 3px solid #9ac601;
+  background-color: #202e17;
+  padding: 10px;
+  color: #9ac601;
+  font-family: "Special Elite", cursive;
 }
