@@ -122,3 +122,21 @@ body {
   color: #9ac601;
   font-family: "Special Elite", cursive;
 }
+.modal-content {
+  background-color: #202e17 !important;
+  color: #9ac601 !important;
+}
+.modal-content button {
+  color: #9ac601 !important;
+}
+.modal-header {
+  border: 0px !important;
+}
+.modal-footer {
+  border: 0px !important;
+  justify-content: center !important;
+}
+.modal-footer button {
+  background-color: #202e17;
+  border: 2px solid #9ac601;
+}
