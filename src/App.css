@@ -140,3 +140,8 @@ body {
   background-color: #202e17;
   border: 2px solid #9ac601;
 }
+.modal-footer button:hover {
+  color: #202e17 !important;
+  background-color: #9ac601;
+  border: 2px solid #202e17 !important;
+}
