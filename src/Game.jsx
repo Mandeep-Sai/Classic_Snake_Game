@@ -47,6 +47,7 @@ export class Game extends Component {
   fetchScores = async () => {
     let response = await fetch("http://localhost:3001/scores");
     let scores = await response.json();
+    scores.sort((a, b) => (a.score > b.score ? -1 : 1));
     let top5 = scores.slice(0, 5);
     this.setState({ highscores: top5 });
   };

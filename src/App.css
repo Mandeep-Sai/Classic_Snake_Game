@@ -7,6 +7,7 @@ body {
   align-items: center;
   justify-content: center;
   margin-top: 20px;
+  margin-left: 100px;
 }
 #info {
   position: absolute;
@@ -66,7 +67,7 @@ body {
 }
 #info {
   margin-top: 10px;
-  width: 200px;
+  width: 12vw;
 }
 #info p {
   margin: 0px;
@@ -87,7 +88,7 @@ body {
   position: absolute;
   top: 300px;
   left: 7vw;
-  width: 200px;
+  width: 12vw;
 }
 #highscores p {
   margin: 0px;
@@ -110,7 +111,7 @@ body {
 }
 #restartGame button {
   display: block;
-  width: 200px;
+  width: 12vw;
   margin: 0px auto;
   position: absolute;
   left: 7vw;
