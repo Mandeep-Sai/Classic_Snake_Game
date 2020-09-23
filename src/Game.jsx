@@ -50,8 +50,8 @@ export class Game extends Component {
     );
     let scores = await response.json();
     scores.sort((a, b) => (a.score > b.score ? -1 : 1));
-    let top5 = scores.slice(0, 5);
-    this.setState({ highscores: top5 });
+    let top3 = scores.slice(0, 3);
+    this.setState({ highscores: top3 });
   };
   startGame = () => {
     const connOpt = {
