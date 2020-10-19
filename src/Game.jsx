@@ -46,7 +46,7 @@ export class Game extends Component {
   };
   fetchScores = async () => {
     let response = await fetch(
-      "https://classic-snakegame-be.herokuapp.com/scores"
+      "https://classicsnakegamebe.herokuapp.com/scores"
     );
     let scores = await response.json();
     scores.sort((a, b) => (a.score > b.score ? -1 : 1));
@@ -57,7 +57,7 @@ export class Game extends Component {
     const connOpt = {
       transports: ["websocket"],
     };
-    this.socket = io("https://classic-snakegame-be.herokuapp.com", connOpt);
+    this.socket = io("https://classicsnakegamebe.herokuapp.com", connOpt);
     this.socket.on("init", this.handleInit);
     this.socket.on("gameState", this.handleGameState);
     this.socket.on("gameOver", this.handleGameOver);
@@ -111,7 +111,7 @@ export class Game extends Component {
       name: this.props.name,
     };
     let response = await fetch(
-      "https://classic-snakegame-be.herokuapp.com/scores",
+      "https://classicsnakegamebe.herokuapp.com/scores",
       {
         method: "POST",
         body: JSON.stringify(payload),
